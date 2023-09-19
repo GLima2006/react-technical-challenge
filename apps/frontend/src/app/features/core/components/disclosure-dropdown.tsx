@@ -6,7 +6,7 @@ import Text from "./text";
 
 export interface DropdownProps {
   title?: string;
-  children?: string;
+  children?: React.ReactNode;
   className?: string;
 }
 const DisclosureDropdown: React.FC<DropdownProps> = ({
@@ -16,44 +16,38 @@ const DisclosureDropdown: React.FC<DropdownProps> = ({
 }) => {
   return (
     <Disclosure
-      as='div'
-      className={classNameBuilder(
-        "flex flex-col rounded-lg overflow-hidden",
-        className
-      )}
+      as="div"
+      className={classNameBuilder("flex flex-col overflow-hidden", className)}
     >
       {({ open }) => (
         <>
           <Disclosure.Button
             className={classNameBuilder(
-              "z-10 flex flex-row justify-between items-center p-4 rounded-b-lg",
-              "hover:bg-neutral-dark active:bg-[rgb(53,51,58)]",
-              open ? "bg-neutral-dark" : "bg-neutral-darker",
-              "transition ease-dissolve duration-250"
+              "bg-white z-10 flex flex-row justify-between items-center border-b-2 pb-2 group/disclosure",
+              "transition ease-out duration-250",
+              open ? "border-gray-200" : "border-transparent"
             )}
           >
-            <Text variant='h4' color='neutral-lightest'>
+            <Text className="leading-5 group-hover/disclosure:underline group-active/disclosure:no-underline" color="default-gray" size="xs" bold>
               {title}
             </Text>
             <ChevronDownIcon
               className={classNameBuilder(
-                "text-neutral-lightest transition ease-dissolve duration-250",
+                "text-black transition ease-out duration-250",
                 open ? "rotate-180" : ""
               )}
             />
           </Disclosure.Button>
           <Transition
-            enter='transition ease-dissolve duration-250 transform'
-            enterFrom='-translate-y-full'
-            enterTo='translate-x-0'
-            leave='transition ease-dissolve duration-250 transform'
-            leaveFrom='translate-x-0'
-            leaveTo='-translate-y-full'
+            enter="transition ease-out duration-250 transform"
+            enterFrom="-translate-y-full"
+            enterTo="translate-x-0"
+            leave="transition ease-out duration-250 transform"
+            leaveFrom="translate-x-0"
+            leaveTo="-translate-y-full"
           >
-            <Disclosure.Panel className='p-4 -mt-2 pt-6 bg-neutral-darker/50 rounded-b-lg'>
-              <Text variant='p1' color='neutral-lightest'>
-                {children}
-              </Text>
+            <Disclosure.Panel className="pt-4">
+              {children}
             </Disclosure.Panel>
           </Transition>
         </>

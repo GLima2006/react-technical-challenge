@@ -8,7 +8,8 @@ export type TextColor =
   | "current-color"
   | "default-gray"
   | "gray-500"
-  | "darkest-gray";
+  | "darkest-gray"
+  | "default-indigo"
 export type TextSize = "xs" | "sm" | "md";
 export type TextAlign = "left" | "center" | "justify" | "right";
 
@@ -59,15 +60,16 @@ export default Text;
 
 // const variantMap: Record<TextVariant, string> = {};
 
-const colorMap: Record<TextColor, string> = {
+export const colorMap: Record<TextColor, string> = {
   white: "text-white",
   black: "text-black",
   "current-color": "text-current",
   "gray-500": "text-gray-500",
   "darkest-gray": "text-gray-darkest",
   "default-gray": "text-gray-default",
+  "default-indigo": "text-indigo-default"
 };
-const sizeMap: Record<TextSize, string> = {
+export const sizeMap: Record<TextSize, string> = {
   xs: "text-xs",
   sm: "text-sm",
   md: "text-md",

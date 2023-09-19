@@ -5,12 +5,12 @@ import BaseCheckbox, { BaseCheckboxProps } from "./base-checkbox";
 import Label, { LabelVariant } from "./label";
 import Row from "./row";
 import Show from "./show";
-import { Color } from "./text";
+import { TextColor, TextSize } from "./text";
 
 export type LabelConfig = {
   text: string;
-  color?: Color;
-  variant?: LabelVariant;
+  color?: TextColor;
+  size?: TextSize;
 };
 export interface CheckboxProps extends BaseCheckboxProps {
   label?: string | LabelConfig;
@@ -22,14 +22,10 @@ const Checkbox: React.ForwardRefRenderFunction<
   const labelConfig: LabelConfig | undefined =
     typeof label === "string" ? { text: label } : label;
   return (
-    <Row className={classNameBuilder("items-center gap-x-5", className)}>
+    <Row className={classNameBuilder("items-center gap-x-2", className)}>
       <BaseCheckbox id={id} {...otherProps} ref={ref} />
       <Show when={!!labelConfig}>
-        <Label
-          htmlFor={id}
-          color={labelConfig?.color}
-          variant={labelConfig?.variant}
-        >
+        <Label htmlFor={id} color={labelConfig?.color} size={labelConfig?.size}>
           {labelConfig?.text || ""}
         </Label>
       </Show>
