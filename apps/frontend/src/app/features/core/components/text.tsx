@@ -5,7 +5,8 @@ export type TextVariant =
   | "product-description"
   | "footer-title-1"
   | "footer-title-2"
-  | "footer-link";
+  | "footer-link"
+  | "navigation";
 export type TextAlign = "left" | "center" | "justify" | "right";
 
 export interface TextProps {
@@ -49,6 +50,7 @@ const variantMap: Record<TextVariant, string> = {
   "footer-title-1": "text-[#585858] text-sm font-bold",
   "footer-title-2": "text-[#585858] text-sm font-normal",
   "footer-link": "text-[#585858] text-xs font-normal",
+  "navigation": "text-[#585858] text-sm font-bold",
 };
 
 const alignMap: Record<TextAlign, string> = {
