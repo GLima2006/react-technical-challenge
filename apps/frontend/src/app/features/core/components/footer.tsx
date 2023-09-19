@@ -19,7 +19,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
           Políticas de privacidade
         </Text>
       </Column>
-      <Row className="justify-between items-start gap-x-2">
+      <Row className="justify-between items-start gap-x-2 mb-16">
         <Column className="mt-[10px]">
           <Text className="mb-2 leading-10" variant="footer-title-2">
             Formas de pagamento
