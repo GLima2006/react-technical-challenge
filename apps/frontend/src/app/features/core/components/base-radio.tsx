@@ -25,7 +25,7 @@ const BaseRadio: React.ForwardRefRenderFunction<
         "disabled:bg-neutral-light disabled:bg-none",
         "after:absolute after:inset-[2px] after:rounded-full after:border-[3px] after:border-neutral-darkest after:bg-neutral-darkest",
         "after:bg-opacity-100 after:checked:bg-opacity-0",
-        "transition duration-250 ease-dissolve before:transition before:duration-250 before:ease-dissolve",
+        "transition duration-250 ease-out before:transition before:duration-250 before:ease-out",
         disabled
           ? "cursor-not-allowed"
           : "before:opacity-0 before:hover:opacity-100 before:absolute before:-inset-3 before:rounded-full before:bg-transparent-15 before:active:bg-transparent-25 cursor-pointer",

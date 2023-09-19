@@ -33,7 +33,7 @@ const PressableIcon: React.FC<PressableIconProps> = ({
           "relative rounded-sm overflow-hidden",
           disabled
             ? ""
-            : "hover:scale-105 active:scale-90 transition duration-250 ease-dissolve",
+            : "hover:scale-105 active:scale-90 transition duration-250 ease-out",
           className ?? "w-6 h-6"
         )}
         onClick={disabled ? () => null : onClick}

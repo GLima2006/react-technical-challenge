@@ -42,7 +42,7 @@ const Button = ({
       }}
       className={classNameBuilder(
         "relative outline-none focus-visible:ring-4",
-        "transition ease-dissolve duration-200",
+        "transition ease-out duration-200",
         "disabled:cursor-not-allowed",
         leftAttachment ? "pl-4" : "",
         rightAttachment ? "pr-4" : "",
