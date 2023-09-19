@@ -1,18 +1,25 @@
 import { classNameBuilder } from "@/helpers/class-name-builder";
 import React from "react";
 
-export type TextVariant =
-  | "product-description"
-  | "footer-title-1"
-  | "footer-title-2"
-  | "footer-link"
-  | "navigation";
+// export type TextVariant =
+export type TextColor =
+  | "white"
+  | "black"
+  | "current-color"
+  | "default-gray"
+  | "gray-500"
+  | "darkest-gray";
+export type TextSize = "xs" | "sm" | "md";
 export type TextAlign = "left" | "center" | "justify" | "right";
 
 export interface TextProps {
-  variant?: TextVariant;
+  // variant?: TextVariant;
+  color?: TextColor;
+  size?: TextSize;
   align?: TextAlign;
   truncate?: boolean;
+  bold?: boolean;
+  as?: "span" | "p";
   className?: string;
   children: string;
   onClick?: () => void;
@@ -20,21 +27,26 @@ export interface TextProps {
 
 const Text: React.FC<TextProps> = ({
   className,
-  variant = "product-description",
+  // variant = "",
+  color = "current-color",
+  size = "sm",
   align = "left",
   truncate,
+  bold,
+  as = "span",
   children,
   onClick,
 }) => {
-  const elementType =
-    variant[0] === "h" && Number(variant[1]) <= 6 ? variant : "p";
   return React.createElement(
-    elementType,
+    as,
     {
       className: classNameBuilder(
-        variantMap[variant],
+        // variantMap[variant],
+        colorMap[color],
+        sizeMap[size],
         alignMap[align],
         truncate ? "truncate" : "",
+        bold ? "font-bold" : "font-normal",
         className
       ),
       onClick,
@@ -45,12 +57,20 @@ const Text: React.FC<TextProps> = ({
 
 export default Text;
 
-const variantMap: Record<TextVariant, string> = {
-  "product-description": "text-[#8B96A5] text-base font-normal",
-  "footer-title-1": "text-[#585858] text-sm font-bold",
-  "footer-title-2": "text-[#585858] text-sm font-normal",
-  "footer-link": "text-[#585858] text-xs font-normal",
-  "navigation": "text-[#585858] text-sm font-bold",
+// const variantMap: Record<TextVariant, string> = {};
+
+const colorMap: Record<TextColor, string> = {
+  white: "text-white",
+  black: "text-black",
+  "current-color": "text-current",
+  "gray-500": "text-gray-500",
+  "darkest-gray": "text-gray-darkest",
+  "default-gray": "text-gray-default",
+};
+const sizeMap: Record<TextSize, string> = {
+  xs: "text-xs",
+  sm: "text-sm",
+  md: "text-md",
 };
 
 const alignMap: Record<TextAlign, string> = {

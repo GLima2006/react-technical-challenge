@@ -9,19 +9,19 @@ const Footer: React.FC<FooterProps> = ({}) => {
   return (
     <Column className="bg-white divide-y px-8 md:px-16 flex-grow">
       <Column className="mt-10 mb-9">
-        <Text className="leading-10" variant="footer-title-1">
+        <Text className="leading-10" color="default-gray" size="sm" bold>
           Atendimento
         </Text>
-        <Text className="leading-10" variant="footer-link">
+        <Text className="leading-10" color="default-gray" size="xs">
           Central de atendimento
         </Text>
-        <Text className="leading-10" variant="footer-link">
+        <Text className="leading-10" color="default-gray" size="xs">
           Políticas de privacidade
         </Text>
       </Column>
       <Row className="justify-between items-start gap-x-2 mb-16">
         <Column className="mt-[10px]">
-          <Text className="mb-2 leading-10" variant="footer-title-2">
+          <Text className="mb-2 leading-10" color="default-gray" size="md">
             Formas de pagamento
           </Text>
           <Row className="flex-wrap gap-2">

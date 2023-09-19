@@ -10,9 +10,9 @@ const NavigationLocationDisplay: React.FC<
 > = ({}) => {
   return (
     <Row className="gap-x-2 items-center">
-      <HouseIcon className="text-[#585858]" />
-      <ChevronRightIcon className="h-5 w-5 text-[#585858]" />
-      <Text variant="navigation">Todos os produtos</Text>
+      <HouseIcon className="text-gray-default" />
+      <ChevronRightIcon className="h-5 w-5 text-gray-default" />
+      <Text color="default-gray" size="sm" bold>Todos os produtos</Text>
     </Row>
   );
 };
