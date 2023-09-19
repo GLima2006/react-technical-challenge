@@ -12,7 +12,7 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
     <Row
       className={classNameBuilder(
         "px-8 md:px-16 h-[84px] items-center justify-between gap-x-8",
-        "bg-[#3A3C5A]",
+        "bg-gradient-to-br from-[#1C1228] to-[#9D59FF] to-[200%]",
         className
       )}
     >
