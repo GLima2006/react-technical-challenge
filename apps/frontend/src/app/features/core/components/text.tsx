@@ -1,7 +1,11 @@
 import { classNameBuilder } from "@/helpers/class-name-builder";
 import React from "react";
 
-export type TextVariant = "footer-title-1" | "footer-title-2" | "footer-link";
+export type TextVariant =
+  | "product-description"
+  | "footer-title-1"
+  | "footer-title-2"
+  | "footer-link";
 export type TextAlign = "left" | "center" | "justify" | "right";
 
 export interface TextProps {
@@ -13,15 +17,14 @@ export interface TextProps {
   onClick?: () => void;
 }
 
-const Text: React.FC<TextProps> = (props) => {
-  const {
-    className,
-    variant = "p1",
-    align = "left",
-    truncate,
-    children,
-    onClick,
-  } = getPropsWithTemplate(props);
+const Text: React.FC<TextProps> = ({
+  className,
+  variant = "product-description",
+  align = "left",
+  truncate,
+  children,
+  onClick,
+}) => {
   const elementType =
     variant[0] === "h" && Number(variant[1]) <= 6 ? variant : "p";
   return React.createElement(
@@ -42,6 +45,7 @@ const Text: React.FC<TextProps> = (props) => {
 export default Text;
 
 const variantMap: Record<TextVariant, string> = {
+  "product-description": "text-[#8B96A5] text-base font-normal",
   "footer-title-1": "text-[#585858] text-sm font-bold",
   "footer-title-2": "text-[#585858] text-sm font-normal",
   "footer-link": "text-[#585858] text-xs font-normal",
@@ -52,21 +56,4 @@ const alignMap: Record<TextAlign, string> = {
   center: "text-center",
   justify: "text-justify",
   right: "text-right",
-};
-
-const getPropsWithTemplate = (props: TextProps): TextProps => {
-  if (!props.template) return props;
-  const templatePropsMap: Record<TextTemplate, Partial<TextProps>> = {
-    category: {
-      variant: props.variant || "h6",
-      color: props.color || "neutral-light",
-      className: classNameBuilder(
-        "w-fit cursor-pointer",
-        "hover:text-primary-light active:text-primary-dark",
-        "transition-all duration-200 ease-linear",
-        props.className
-      ),
-    },
-  };
-  return { ...props, ...templatePropsMap[props.template] };
 };
