@@ -9,8 +9,8 @@ export type TextColor =
   | "default-gray"
   | "gray-500"
   | "darkest-gray"
-  | "default-indigo"
-export type TextSize = "xs" | "sm" | "md";
+  | "default-indigo";
+export type TextSize = "xs" | "sm" | "md" | "lg" | "xl";
 export type TextAlign = "left" | "center" | "justify" | "right";
 
 export interface TextProps {
@@ -67,12 +67,14 @@ export const colorMap: Record<TextColor, string> = {
   "gray-500": "text-gray-500",
   "darkest-gray": "text-gray-darkest",
   "default-gray": "text-gray-default",
-  "default-indigo": "text-indigo-default"
+  "default-indigo": "text-indigo-default",
 };
 export const sizeMap: Record<TextSize, string> = {
   xs: "text-xs",
   sm: "text-sm",
-  md: "text-md",
+  md: "text-base",
+  lg: "text-lg",
+  xl: "text-xl",
 };
 
 const alignMap: Record<TextAlign, string> = {
