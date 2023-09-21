@@ -6,8 +6,9 @@ type ImageProps = {
   width?: number;
   height?: number;
   alt?: string;
+  fill?: boolean;
 };
-const Image = ({ className, src, width, height, alt }: ImageProps) => {
+const Image = ({ className, src, width, height, alt, fill }: ImageProps) => {
   if (!src) {
     return (
       <div className={`${className} bg-gray-200`} style={{ width, height }} />
@@ -19,9 +20,10 @@ const Image = ({ className, src, width, height, alt }: ImageProps) => {
       alt={alt || ""}
       className={className}
       src={`${process.env.NEXT_PUBLIC_IMAGES_URL}/${src}`}
-      layout='fixed'
+      layout="fixed"
       width={width}
       height={height}
+      fill={fill}
     />
   );
 };
