@@ -14,12 +14,13 @@ module.exports = {
       },
       colors: {
         gray: {
+          light: "#E0E0E0",
           default: "#585858",
           darkest: "#1C1C1C",
         },
         indigo: {
-          default: "#4A237D"
-        }
+          default: "#4A237D",
+        },
       },
       dropShadow: {
         card: "0px 1px 4px 0px #0000001A",

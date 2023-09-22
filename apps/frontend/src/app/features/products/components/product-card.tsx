@@ -29,15 +29,15 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         <Image
           className="object-cover"
           fill
-          src={product.image}
-          alt={product.name}
+          src={product.image?.url || ""}
+          alt={product.name || ""}
         />
       </div>
       <Text className="font-medium mx-4 mt-4" color="darkest-gray" size="md">
         {formattedProductPrice}
       </Text>
       <Text className="mx-4 mt-1" color="gray-500" size="md">
-        {product.name}
+        {product.name || ""}
       </Text>
     </Column>
   );
