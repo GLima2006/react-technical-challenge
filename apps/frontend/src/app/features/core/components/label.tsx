@@ -20,7 +20,7 @@ const Label: React.FC<LabelProps> = ({
 }) => {
   return (
     <label
-      className={classNameBuilder(colorMap[color], sizeMap[size], className)}
+      className={classNameBuilder("select-none", colorMap[color], sizeMap[size], className)}
       {...otherProps}
     />
   );

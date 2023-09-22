@@ -25,7 +25,12 @@ const Checkbox: React.ForwardRefRenderFunction<
     <Row className={classNameBuilder("items-center gap-x-2", className)}>
       <BaseCheckbox id={id} {...otherProps} ref={ref} />
       <Show when={!!labelConfig}>
-        <Label htmlFor={id} color={labelConfig?.color} size={labelConfig?.size}>
+        <Label
+          htmlFor={id}
+          color={labelConfig?.color}
+          size={labelConfig?.size}
+          className={otherProps.disabled ? "" : "cursor-pointer"}
+        >
           {labelConfig?.text || ""}
         </Label>
       </Show>
